@@ -27,10 +27,14 @@ Includi SWOTOols in un progetto swo: api, web, abs
   "post-install-cmd": [
     "bash vendor/swolab/swotools/bin/composer/post-install-cmd.sh"
   ],
-  "swo:clean": "bash vendor/swolab/swotools/bin/cleanpack.sh",
-  "swog:install": "bash vendor/swolab/swotools/bin/swog/install.sh"
-},
+  "swo:clean": "bash vendor/swolab/swotools/bin/cleanpack.sh"
+}
 ```
+
+### Comandi
+#### swo:clean
+Pulisce direcotry.
+
 ## PLUGIN
 
 ### SWOG
@@ -56,6 +60,7 @@ Includi SWOTOols in un progetto swo: api, web, abs
 
 
 ## ToDO
+ATT!! Swo clean in base a progetto, se trova swog, cacnella anche altri file, altrimenti cancella directory.<br> controlla anche che
 Comandi swog update.
 Trova modo di eseguire comandi con php console ? serve ?
 Usa ARGV per le variabili in script!! tipo --force , --delete etc..
