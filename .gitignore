@@ -1,0 +1,40 @@
+.*
+*~
+tmp/
+composer.lock
+vendor/
+cache/
+*.map
+node_modules/
+app/src/models/
+#NETBEANS
+nbproject/
+build/
+nbbuild/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+.nb-gradle/
+.settings/
+# Packages #
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+# Logs and databases #
+logs/
+*.log
+*.sqlite
+# OS generated files #
+.DS_Store*
+Thumbs.db
+
+!.gitignore
+!.htaccess
+!.gitkeep
+!.editorconfig
+!.gitattributes

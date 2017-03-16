@@ -1,0 +1,15 @@
+{
+  "name": "SWOTools",
+  "description": "SWO Tools for swo app",
+  "homepage": "http://agenziasmart.com/swo/",
+  "keywords": ["swo", "tools"],
+  "license": "MIT",
+  "authors": [{
+    "name": "AgenziaSmart",
+    "email": "it@agenziasmart.com",
+    "homepage": "http://www.agenziasmart.com/"
+  }],
+  "require": {
+    "league/climate": "^3.2"
+  }
+}
