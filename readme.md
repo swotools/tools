@@ -1,72 +1,61 @@
 # SWOTools
 
+## Installazione e config
 
-## Installing
+Includi SWOTOols in un progetto swo: api, web, abs
 
-__Db esistente__
-Se esiste un db devi configurare ed eseguire questo
-```bash
-composer db:preinstall
-```
-Come best practice dovresti costruire il db dai modelli
-!! Cosa importante:<br>
-Se crei i model, ricordati di mettere il namespace!!
-```php
-<?php
-namespace App\Model;
+#### Includi in composer
 
-use Doctrine\ORM\Mapping as ORM;
-```
-Per stampare l'intero valore delle colonne dalla classe, ho aggiunto nei model
-```php
-...
-public function getArrayCopy()
-{
-    return get_object_vars($this);
+```json
+"repositories": [
+    {
+        "type": "git",
+        "url": "https://bitbucket.org/swolab/swotools"
+    }
+],
+"require": {
+  "swolab/swotools": "^1.0"
 }
-...
-```
-Credo che da questo ultimo punto inizi il gioco di fractal
-
-__Db nuovo__
-Scivi nella dir App\Src\Model i modelli delle tabelle
-
-Una volta scritte le tabelle, lanci il comando
-``` bash
-composer db:create
-```
-Poi se hai bisogno di aggiornare lanci il comando
-``` bash
-composer db:update
 ```
 
+#### Aggiungi i comandi script a composer
+```json
+"scripts": {
+  "post-update-cmd": [
+    "bash vendor/swolab/swotools/bin/composer/post-update-cmd.sh"
+  ],
+  "post-install-cmd": [
+    "bash vendor/swolab/swotools/bin/composer/post-install-cmd.sh"
+  ],
+  "swo:clean": "bash vendor/swolab/swotools/bin/cleanpack.sh",
+  "swog:install": "bash vendor/swolab/swotools/bin/swog/install.sh"
+},
+```
+## PLUGIN
 
-## Composer
-
-
-
-## Installing
-
-composer install
-
-## Note
-- app/src/resource perchÃ¨ se metti in dependencies.php questo
-``` php
-$container['App\Action\PhotoAction'] = function ($c) {
-    $photoResource = new \App\Resource\PhotoResource($c->get('em'));
-    return new App\Action\PhotoAction($photoResource);
-};
+### SWOG
+#### Includi in composer
+```json
+"repositories": [
+  {
+      "type": "git",
+      "url": "https://bitbucket.org/swolab/swog"
+  }
+],
+"require": {
+  "swolab/swog": "^1.0"
+}
 ```
 
-[Esempio preso qui](https://github.com/matthewfedak/slim-3-doctrine-2/blob/master/app/dependencies.php)
+#### Aggiungi i comandi script a composer
+```json
+"scripts": {
+  "swog:install": "bash vendor/swolab/swotools/bin/swog/install.sh"
+},
+```
 
-
-
-inietti $photoResource e lavora solo con em. La classe astratta che estende
-va fatta come BaseController
-
-
-- app/src/utente
-Ã¨ il modello vecchio in pdo.
 
 ## ToDO
+Comandi swog update.
+Trova modo di eseguire comandi con php console ? serve ?
+Usa ARGV per le variabili in script!! tipo --force , --delete etc..
