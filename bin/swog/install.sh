@@ -1,22 +1,37 @@
 #!/bin/sh
 set -e
-#QUESTO CMD VIENE ESEGUITO LA PRIMA VOLTA! PERCHÈ MANCA IL .LOCK
-#post-update-cmd: occurs after the update command has been executed, or after the install command has been executed without a lock file present.
-echo "INIT post-update-cmd ..."
+
+echo "INIT swog install ..."
 source vendor/swolab/swotools/bin/_config.sh
+
+# CONTROLLO ESISTENZA FILE ENV
+echo "Check ENV ..."
+if [ ! -f $ENVFILE ];then
+  echo "Not found .env file!"
+  exit
+else
+  echo "Loading $ENVFILE file ..."
+  source $ENVFILE
+fi
+
+SWOG_COPY=( "package.json" "gruntfile.js" "grunt" "scss" "js" )
 
 if [ ! -z "$APP_ENV" ];then
   echo "**********************************"
   echo "ENV NAME $APP_ENV"
   echo "**********************************"
   # VERIFICO CHE esista il file swoginstall.sh
-  echo "Swog checking ..."
-  if [ ! -f $DIRSWOGFILEINSTALL ];then
-    echo "Non trovo il file di installazione di SWOG..."
-    exit
-  else
-    # copio il file di installazione
-    bash $DIRSWOGFILEINSTALL $PROJECTDIR
+  # copio il file di installazione
+  # SE E SOLO SE, NON TROVO i file di SWOG COPY nella root del progetto
+  if [ ! -f "package.json" ];then
+    echo "SWOG installing ..."
+    for fsobject in "${SWOG_COPY[@]}";do
+      if rsync -a "$DIRSWOG/$fsobject";then
+        echo "$fsobject OK"
+      else
+        echo "$fsobject FAILED!"
+      fi
+    done
     # Verifico se esiste la cartella node_modules, installo, senò si arrangia
     # lo sviluppaore
     if [ ! -d "$DIRNODEMOD" ];then
@@ -24,6 +39,9 @@ if [ ! -z "$APP_ENV" ];then
       npm update -g
       npm install
     fi
+
+  else
+    echo "SWOG is installed"
   fi
 # produzione: non faccio nulla perhcè non serve!
 else
