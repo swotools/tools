@@ -18,7 +18,7 @@ DIRNODEMOD='node_modules'
 COMPOSERLOCK='composer.lock'
 
 SWOGBASHINSTALL="swoginstall.sh"
-DIRSWOG="vendor/fvoxlab/swog"
+DIRSWOG="vendor/swolab/swog"
 DIRSWOGFILEINSTALL="$DIRSWOG/bin/bash/$SWOGBASHINSTALL"
 
 ENVFILE="$DIRAPP/.env";
