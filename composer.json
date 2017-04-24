@@ -1,6 +1,13 @@
 {
-  "name": "swolab/swotools",
+  "name": "swotools/tools",
   "description": "SWO Tools for swo app",
+  "keywords": [
+    "tools",
+    "swog",
+    "installer",
+    "swobot",
+    "agenziasmart"
+  ],
   "homepage": "http://agenziasmart.com/swo/",
   "keywords": ["swo", "tools"],
   "license": "MIT",
@@ -11,5 +18,10 @@
   }],
   "require": {
     "league/climate": "^3.2"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    }
   }
 }
