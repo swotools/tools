@@ -3,16 +3,11 @@
 ## Installazione e config
 
 Includi SWOTools in un progetto swo: api, web, abs.
-
-#### Includi in composer
-
+```bash
+composer require swotools/tools
+```
+Oppure aggiungi al require
 ```json
-"repositories": [
-    {
-        "type": "git",
-        "url": "https://github.com/swotools/tools"
-    }
-],
 "require": {
   "swotools/tools": "^1.0"
 }
@@ -34,10 +29,14 @@ Includi SWOTools in un progetto swo: api, web, abs.
 
 ### Comandi
 
+### post-update-cmd
+Utilizza questo comando per eseguire istruzioni all'aggiornamento di composer
+
+### post-install-cmd
+Utilizza questo comando per eseguire istruzioni dopo installazione composer
+
 #### swo:clean
 Pulisce direcotry.
-
-## PLUGIN
 
 ## ToDO
 **ATT!!** Swo clean in base a progetto, se trova swog, cancella anche altri file, altrimenti cancella directory.<br> controlla anche che
