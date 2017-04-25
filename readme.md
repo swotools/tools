@@ -1,4 +1,4 @@
-# SWOTools
+# SWOTools v1.1.1
 
 ## Installazione e config
 
@@ -13,7 +13,9 @@ Oppure aggiungi al require
 }
 ```
 
-#### Aggiungi i comandi script a composer
+## Comandi
+
+### composer.json
 
 ```json
 "scripts": {
@@ -26,13 +28,13 @@ Oppure aggiungi al require
   "swo:clean": "bash vendor/swotools/tools/bin/cleanpack.sh"
 }
 ```
+### Istruzioni
+Dettagli funzionamento per singole istruzioni da eseguire in CLI o da aggiungere come composer scripts
 
-### Comandi
-
-### post-update-cmd
+#### post-update-cmd
 Utilizza questo comando per eseguire istruzioni all'aggiornamento di composer
 
-### post-install-cmd
+#### post-install-cmd
 Utilizza questo comando per eseguire istruzioni dopo installazione composer
 
 #### swo:clean
