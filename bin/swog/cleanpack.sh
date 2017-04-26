@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-source vendor/swolab/swotools/bin/_config.sh
+source vendor/swotools/tools/bin/_config.sh
 # Controllo SWOG
 # se lo chiami da composer swo:clean, si autoelimina cancellando vendor
 SWOG_COPY=( "package.json" "gruntfile.js" "grunt" "scss" "js" )

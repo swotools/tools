@@ -18,7 +18,7 @@ DIRNODEMOD='node_modules'
 COMPOSERLOCK='composer.lock'
 
 SWOGBASHINSTALL="swoginstall.sh"
-DIRSWOG="vendor/swolab/swog"
+DIRSWOG="vendor/swotools/swog"
 SWOG_COPY=( "package.json" "gruntfile.js" "grunt" "scss" "js" )
 DIRSWOGFILEINSTALL="$DIRSWOG/bin/bash/$SWOGBASHINSTALL"
 
