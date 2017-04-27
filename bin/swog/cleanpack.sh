@@ -3,7 +3,7 @@ set -e
 source vendor/swotools/tools/bin/_config.sh
 # Controllo SWOG
 # se lo chiami da composer swo:clean, si autoelimina cancellando vendor
-SWOG_COPY=( "package.json" "gruntfile.js" "grunt" "scss" "js" )
+SWOG_COPY=( "package.json" "gruntfile.js" "scss" "js" )
 for i in "${SWOG_COPY[@]}"
 do
   echo "Elimino $i ..."

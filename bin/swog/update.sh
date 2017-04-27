@@ -3,13 +3,13 @@
 # Aggiornamento di SWOG
 # **********************
 set -e # Exit script on error
-# SWOG è installato in vendor/fvoxlab/swog
-VENDORDIR='vendor/fvoxlab/swog'
+# SWOG è installato in vendor/swotools/swog
+VENDORDIR='vendor/swotools/swog'
 BASEDIR=$1
 # i file da aggiornare nella root del progetto.
 # Escludo options perchè ogni singolo progetto può modificare parametri
 # es. Concat, esclude js di carousel etc..
-SWOG_COPY=( "package.json" "gruntfile.js" "grunt" )
+SWOG_COPY=( "package.json" "gruntfile.js")
 SWOG_EXCLUDE=( "grunt/options" )
 
 if [ -z $BASEDIR ]; then
@@ -21,7 +21,9 @@ if [ -f "$BASEDIR/package.json" ];then
   echo "SWOG updating ..."
   for fsobject in "${SWOG_COPY[@]}";do
     # echo "$VENDORDIR/$fsobject in $BASEDIR"
-    if rsync -a "$VENDORDIR/$fsobject" $BASEDIR --exclude ${SWOG_EXCLUDE[@]};then
+    # DEPRECATED
+    # if rsync -a "$VENDORDIR/$fsobject" $BASEDIR --exclude ${SWOG_EXCLUDE[@]};then
+    if rsync -a "$VENDORDIR/$fsobject" $BASEDIR;then
       echo "$fsobject Updated"
     else
       echo "$fsobject FAILED!"
