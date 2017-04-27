@@ -3,17 +3,16 @@ set -e
 #QUESTO CMD VIENE ESEGUITO LA PRIMA VOLTA! PERCHÈ MANCA IL .LOCK
 #post-update-cmd: occurs after the update command has been executed, or after the install command has been executed without a lock file present.
 echo "INIT post-update-cmd ..."
-source vendor/swolab/swotools/bin/_config.sh
+source vendor/swotools/tools/bin/swog/_config.sh
 
 # CONTROLLO ESISTENZA FILE ENV
 echo "Check ENV ..."
 if [ ! -f $ENVFILE ];then
   echo "Not found .env file!"
   exit
-else
-  echo "Loading $ENVFILE file ..."
-  source $ENVFILE
 fi
+echo "Loading $ENVFILE file ..."
+source $ENVFILE
 # CONTROLLO CARTELLE
 echo "Check folders ..."
 for i in "${SWO_DIRS[@]}"

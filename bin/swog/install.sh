@@ -2,7 +2,7 @@
 set -e
 
 echo "INIT swog install ..."
-source vendor/swolab/swotools/bin/_config.sh
+source vendor/swotools/tools/bin/swog/_config.sh
 
 # CONTROLLO ESISTENZA FILE ENV
 echo "Check ENV ..."
