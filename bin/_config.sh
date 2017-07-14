@@ -22,6 +22,6 @@ DIRSWOG="vendor/swotools/swog"
 SWOG_COPY=( "package.json" "gruntfile.js" "scss" "js" )
 DIRSWOGFILEINSTALL="$DIRSWOG/bin/bash/$SWOGBASHINSTALL"
 
-ENVFILE="$DIRAPP/.env";
+ENVFILE=".env";
 SWO_DIRS=("$DIRLOGS" "$DIRTMP" "$DIRCACHE" "$DIRSTATIC")
 DIRCLEARCACHE=("$DIRNODEMOD" "$DIRVENDOR" "$COMPOSERLOCK")

@@ -1,5 +1,8 @@
-# SWOTools v1.1.1
+# SWOTools 1.2
 
+## Novità di edizione
+- controllo .env nella root del progetto
+- file di config in directory bin
 ## Installazione e config
 
 Includi SWOTools in un progetto swo: api, web, abs.
