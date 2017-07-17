@@ -1,8 +1,11 @@
-# SWOTools 1.2
+# SWOTools 1.2.1
 
 ## Novità di edizione
 - controllo .env nella root del progetto
+- installazione di swog non obbligatoria
 - file di config in directory bin
+- nuovo comando reset per file temporanei e di installazione app
+
 ## Installazione e config
 
 Includi SWOTools in un progetto swo: api, web, abs.
@@ -21,29 +24,29 @@ Includi SWOTools in un progetto swo: api, web, abs.
 }
 ```
 
-#### Aggiungi i comandi script a composer
+## Comandi
 
-```json
-"scripts": {
-  "post-update-cmd": [
-    "bash vendor/swotools/tools/bin/composer/post-update-cmd.sh"
-  ],
-  "post-install-cmd": [
-    "bash vendor/swotools/tools/bin/composer/post-install-cmd.sh"
-  ],
-  "swo:clean": "bash vendor/swotools/tools/bin/cleanpack.sh"
-}
-```
+### APP
+#### reset
+Elimina file temporanei e di installazione
+Parametro di config - `SWO_DIRS`
+Parametro di config - `RESETFILES`
 
-### Comandi
-
-#### swo:clean
+### SWOG
+#### clean
 Pulisce direcotry.
+Parametro di config - `SWO_DIRS`
 
-## PLUGIN
+### COMPOSER
+#### post-update-cmd
+Check cartelle di applicazione
+Parametro di config - `SWO_DIRS`
 
 ## ToDO
-**ATT!!** Swo clean in base a progetto, se trova swog, cancella anche altri file, altrimenti cancella directory.<br> controlla anche che
-Comandi swog update.
-Trova modo di eseguire comandi con php console ? serve ?
-Usa ARGV per le variabili in script!! tipo --force , --delete etc..
+
+- [x] app reset
+- [x] swog clean
+- [x] composer post-update-cmd
+- [x] swog update [aggiorna file package, scss/swog, js/swog . Può essere utile ? ]
+- [ ] Istruzioni o camandi con PHPCLI
+- [ ] Configurazioni backup, manutenzione con python (request)
