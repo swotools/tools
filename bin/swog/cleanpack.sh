@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-source vendor/swolab/swotools/bin/_config.sh
+source vendor/swotools/tools/bin/_config.sh
 # Controllo SWOG
 # 17-7-17 riduco funzioni lasciando solo il reset di swog
 

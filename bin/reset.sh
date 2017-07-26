@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-source vendor/swolab/swotools/bin/_config.sh
+source vendor/swotools/tools/bin/_config.sh
 # 17-7-17 - reset: cancella tutti i file temporanei
 
 # FILE di ambiente SWO
