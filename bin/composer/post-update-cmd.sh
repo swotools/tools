@@ -30,4 +30,9 @@ done
 #   echo "$OSNAME"
 # fi
 # chown -R $WWW_USER
-sudo chown $WWW_USER ${SWO_DIRS[@]}
+# sudo chown $WWW_USER ${SWO_DIRS[@]}
+
+# 6-10-17 - Dovresti usare sudo. Soluzione NON passa
+# da rivedere
+# chgrp $WWW_USER ${SWO_DIRS[@]}
+# chmod 775 ${SWO_DIRS[@]}
