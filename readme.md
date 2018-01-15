@@ -1,12 +1,21 @@
-# SWOTools 1.2.2
+SWOTools
+====================
+[![Package version](http://img.shields.io/packagist/v/swotools/swog.svg?style=flat)](https://packagist.org/packages/swotools/swog)
+[![Downloads this Month](https://img.shields.io/packagist/dm/swotools/swog.svg)](https://packagist.org/packages/swotools/swog)
+[![Twitter Follow](https://img.shields.io/twitter/follow/agenziasmart.svg?style=social&label=Follow)]()
 
-## Novità di edizione
-- controllo _.env_ nella root del progetto
-- installazione di swog non obbligatoria
-- file di config in directory bin
-- nuovo comando reset per file temporanei e di installazione app
+Novità di edizione
+-----------
+https://
 
-## Installazione e config
+Requirements
+------------
+
+ * PHP (7.0+)
+   * `ext/intl`
+
+Installazione e config
+-----------
 
 Includi SWOTools in un progetto swo: api, web, abs.
 
@@ -18,35 +27,6 @@ composer require swotools/tools
 
 #### Configurazione
 Il file di configurazione ( ```/bin/_config.sh``` ) :
-```bash
-#!/bin/bash
-PROJECTDIR=$(pwd)
-USER=$(whoami)
-OSNAME=$(uname)
-NOW=$(date +"%m-%d-%Y-%H-%M-%S");
-COMPOSERFILE="composer.json";
-DIRBIN='bin';
-DIRBASH="$DIRBIN/bash";
-WWW_USER=`ps axo user,group,comm | egrep '(apache|httpd)' | grep -v ^root | uniq | cut -d\  -f 1`
-
-DIRLOGS='logs';
-DIRCACHE='cache';
-DIRSTATIC='public/static'
-DIRTMP='tmp';
-DIRAPP='app';
-DIRVENDOR='vendor'
-DIRNODEMOD='node_modules'
-COMPOSERLOCK='composer.lock'
-
-SWOGBASHINSTALL='swoginstall.sh'
-DIRSWOG='vendor/swotools/swog'
-SWOG_COPY=( 'package.json' 'gruntfile.js' 'grunt' 'scss' 'js' )
-
-ENVFILE='.env';
-SWO_DIRS=("$DIRLOGS" "$DIRTMP" "$DIRCACHE" "$DIRSTATIC")
-RESETFILES=("$DIRNODEMOD" "$DIRVENDOR" "$COMPOSERLOCK")
-
-```
 
 ## Comandi
 
@@ -129,3 +109,9 @@ Potrebbe essere aggiunto come script in postrotate del file di conf, oppure in c
 - [ ] Istruzioni o camandi con PHPCLI
 - [ ] Configurazioni backup - s3 - (su tutto il server?)
 - [ ] Verifica best practice con rotatelogs (virtualhost o logrotate.d)
+- [ ] Installer di SWOTranslate ?
+
+
+## Copyright and license
+
+Code and documentation copyright 2011-2017 the [Agenziasmart](https://github.com/agenziasmart) Code released under the [MIT License](https://github.com/swotools/tools/blob/master/LICENSE). Docs released under [Creative Commons](https://github.com/swotools/tools/blob/master/docs/LICENSE).
