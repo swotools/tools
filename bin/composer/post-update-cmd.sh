@@ -3,7 +3,11 @@ set -e
 #QUESTO CMD VIENE ESEGUITO LA PRIMA VOLTA! PERCHÈ MANCA IL .LOCK
 #post-update-cmd: occurs after the update command has been executed, or after the install command has been executed without a lock file present.
 echo "INIT post-update-cmd ..."
-source vendor/swotools/tools/bin/_config.sh
+
+USER=$(whoami)
+ENVFILE=".env";
+WWW_USER=`ps axo user,group,comm | egrep '(apache|httpd)' | grep -v ^root | uniq | cut -d\  -f 1`
+
 
 # CONTROLLO ESISTENZA FILE ENV
 echo "Check ENV ..."
@@ -14,25 +18,10 @@ else
   echo "Loading $ENVFILE file ..."
   source $ENVFILE
 fi
-# CONTROLLO CARTELLE
-echo "Check folders ..."
-for i in "${SWO_DIRS[@]}"
-do
-  echo "Elaboro $i ..."
-  if [ ! -d $i ];then
-      mkdir $i
+# CONTROLLO CARTELLA CACHE
+echo "Check cache folders ..."
+  if [ ! -d 'cache' ];then
+      mkdir 'cache'
   fi
-done
-# # Imposto proprietari
-# if [[ $OSNAME == *"Linux"* ]]; then
-#   chown -R _www:staff cache/ logs/ tmp/
-# else
-#   echo "$OSNAME"
-# fi
-# chown -R $WWW_USER
-# sudo chown $WWW_USER ${SWO_DIRS[@]}
 
-# 6-10-17 - Dovresti usare sudo. Soluzione NON passa
-# da rivedere
-# chgrp $WWW_USER ${SWO_DIRS[@]}
-# chmod 775 ${SWO_DIRS[@]}
+chown $USER:$WWW_USER cache

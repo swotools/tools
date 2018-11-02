@@ -6,12 +6,18 @@ SWOTools
 
 Novità di edizione
 -----------
-https://
+https://agenziasmart.com/swo/tools
+
+- I log non sono più gestiti da applicazioni swo/sw4, ma inviati a code esterne. Non più necessari i componenti
+- SWOG non è più dipendente da applicazione, ma gestito singolarmente per reti CDN
+- Nessun reset perchè non esiste più cartalla vuori dal version control
+- Composer controlla solo ENV
+- Mantenuta x ora la pulizia cache per TWIG nella cartella cache
 
 Requirements
 ------------
 
- * PHP (7.0+)
+ * PHP (7.2+)
    * `ext/intl`
 
 Installazione e config
@@ -30,26 +36,6 @@ Il file di configurazione ( ```/bin/_config.sh``` ) :
 
 ## Comandi
 
-### APP
-#### reset
-Elimina file temporanei e di installazione
-Parametro di config - `SWO_DIRS`
-Parametro di config - `RESETFILES`
-
-### SWOG
-#### install
-Installazione swog
-**Composer script:**
-```json
-"swog:install": "bash vendor/swotools/tools/bin/swog/install.sh"
-```
-#### clean
-Pulisce direcotry.
-Parametro di config - `SWO_DIRS`
-**Composer script:**
-```json
-"swog:clean": "bash vendor/swotools/tools/bin/swog/cleanpack.sh"
-```
 
 ### COMPOSER
 #### post-update-cmd
@@ -69,47 +55,12 @@ Inizializza classe `Doctrine\Cache` per eliminare file scaduti o memorizzati da 
 "cleaner:cache": "php vendor/swotools/tools/cleaner/cache.php"
 ```
 
-### LOG
-
-Applicare rotatelogs!
-Puoi metterlo in vhost:
-```bash
-CustomLog "|usr/bin/rotatelogs /var/log/apache2/smart/smartnet.access.log 1MB" combined
-```
-Oppure nelle conf di rotatelogs ( ```/etc/logrotate.d/apache``` ):
-
-```bash
-/var/log/apache2/*.log {
-	daily
-	missingok
-	rotate 14
-	compress
-  ...
-  postrotate
-                if /etc/init.d/apache2 status > /dev/null ; then \
-                    /etc/init.d/apache2 reload > /dev/null; \
-                fi;
-	endscript
-
-```
-
-#### Archive
-Potrebbe essere aggiunto come script in postrotate del file di conf, oppure in cron. Permette di archiviare su s3 i file di log. Si sta  discutendo se lasciarlo in tools oppure portarlo in fabric come agente server
-**Composer script:**
-```json
-"log:archive": "bash vendor/swotools/tools/log/test.sh"
-```
-
 
 ## ToDO
 
-- [x] app reset
-- [x] swog clean
+- [x] No log management
 - [x] swog update [aggiorna file package, scss/swog, js/swog . Può essere utile ? ]
 - [ ] Istruzioni o camandi con PHPCLI
-- [ ] Configurazioni backup - s3 - (su tutto il server?)
-- [ ] Verifica best practice con rotatelogs (virtualhost o logrotate.d)
-- [ ] Installer di SWOTranslate ?
 
 
 ## Copyright and license
